@@ -1,5 +1,16 @@
 <script setup>
-import TheWelcome from '../components/TheWelcome.vue'
+import { ref, onMounted } from 'vue'
+import { useRoute } from 'vue-router'
+const route = useRoute()
+const squirrel = ref('')
+async function getSquirrels() {
+  let res = await fetch('https://data.cityofnewyork.us/resource/vfnx-vebw.json')
+  let data = await res.json()
+  squirrel.color = data.results
+}
+onMounted(() => {
+  getSquirrels
+})
 </script>
 
 <template>
@@ -7,4 +18,3 @@ import TheWelcome from '../components/TheWelcome.vue'
     <TheWelcome />
   </main>
 </template>
- 
