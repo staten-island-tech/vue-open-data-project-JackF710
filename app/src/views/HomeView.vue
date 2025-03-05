@@ -14,7 +14,5 @@ onMounted(() => {
 </script>
 
 <template>
-  <main>
-    <TheWelcome />
-  </main>
+  <h1>hello boi</h1>
 </template>
