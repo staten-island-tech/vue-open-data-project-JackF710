@@ -1,5 +1,5 @@
 <template>
-  <div class="card">
+  <div class="SquirrelCard">
     <h2>Color: {{ squirrel.primary_fur_color }}</h2>
     <h2>Location: {{ squirrel.location }}</h2>
     <h2>Was it Running?: {{ squirrel.running }}</h2>
