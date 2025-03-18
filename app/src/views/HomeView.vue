@@ -13,21 +13,16 @@
 <script setup>
 import { ref, onMounted } from 'vue'
 
-const squirrels = ref([])
-const BlackSquirrels = ref([])
-
-function filterSquirrls(sq) {
-  sq.forEach(((squirrel.primary_fur_color) = 'Black') => {
-    console.log()
-});
-}
+const Squirrels = ref([])
 
 async function getSquirrels() {
   try {
     const response = await fetch('https://data.cityofnewyork.us/resource/vfnx-vebw.json')
-    squirrel.value = await response.json()
-    console.log(squirrel.value)
-    //filterSquirrls(squirrel.value)
+    squirrels.value = await response.json()
+
+    const blackSquirrels = squirrels.value.filter(
+      (Squirrels) => squirrel.primary_fur_color === 'Black',
+    )
   } catch (error) {
     console.error('Error fetching squirrel data', error)
   }

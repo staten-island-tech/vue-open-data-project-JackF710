@@ -3,16 +3,8 @@
 </template>
 
 <script setup>
-const config = {
-  type: 'pie',
-  data: data,
-}
 const data = {
-  colors: [
-'Gray',
-'Cinnamon'
-'Black',
-],
+  colors: ['Gray', 'Cinnamon', 'Black'],
   datasets: [
     {
       label: 'Squirrel Color',
@@ -21,6 +13,10 @@ const data = {
       hoverOffset: 4,
     },
   ],
+}
+const config = {
+  type: 'pie',
+  data: data,
 }
 </script>
 
