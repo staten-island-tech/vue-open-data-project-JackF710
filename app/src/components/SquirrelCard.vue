@@ -1,13 +1,17 @@
 <template>
   <div class="SquirrelCard">
-    <h2>Color: {{ squirrel.primary_fur_color }}</h2>
-    <h2>Location: {{ squirrel.location }}</h2>
-    <h2>Was it Running?: {{ squirrel.running }}</h2>
+    <h2>Color: {{ squirrels.primary_fur_color }}</h2>
+    <h2>Location: {{ squirrels.location }}</h2>
+    <h2>Was it Running?: {{ squirrels.running }}</h2>
   </div>
 </template>
 
 <script setup>
-defineProps({ squirrel: Object })
+defineProps({
+  squirrels: {
+    type: Object,
+  },
+})
 </script>
 
 <style scoped></style>

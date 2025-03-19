@@ -5,29 +5,29 @@
     <SquirrelCard
       v-for="(squirrel, index) in squirrels"
       :key="index"
-      :squirrel="squirrel"
+      :squirrels="squirrels"
     ></SquirrelCard>
   </div>
 </template>
 
 <script setup>
+import SquirrelCard from '@/components/SquirrelCard.vue'
 import { ref, onMounted } from 'vue'
+const squirrels = ref([])
 
-const Squirrels = ref([])
+const blackSquirrels = squirrels.value.filter((squirrels) => squirrel.primary_fur_color === 'Black')
 
 async function getSquirrels() {
   try {
     const response = await fetch('https://data.cityofnewyork.us/resource/vfnx-vebw.json')
-    squirrels.value = await response.json()
-
-    const blackSquirrels = squirrels.value.filter(
-      (Squirrels) => squirrel.primary_fur_color === 'Black',
-    )
+    const data = await response.json()
+    console.log('Fetched data:', data)
+    squirrels.value = data
   } catch (error) {
     console.error('Error fetching squirrel data', error)
   }
 }
-onMounted(getSquirrels)
+onMounted(() => getSquirrels())
 </script>
 
 <style scoped></style>
