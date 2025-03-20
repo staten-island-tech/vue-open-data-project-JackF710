@@ -1,12 +1,13 @@
 <template>
   <div class="container">
     <h1>Squirrels in Central Park</h1>
-    <div class="card-container"></div>
-    <SquirrelCard
-      v-for="(squirrel, index) in squirrels"
-      :key="index"
-      :squirrels="squirrels"
-    ></SquirrelCard>
+    <div class="card-container">
+      <SquirrelCard
+        v-for="(squirrel, index) in squirrels"
+        :key="index"
+        :squirrels="squirrel"
+      ></SquirrelCard>
+    </div>
   </div>
 </template>
 
@@ -21,7 +22,6 @@ async function getSquirrels() {
   try {
     const response = await fetch('https://data.cityofnewyork.us/resource/vfnx-vebw.json')
     const data = await response.json()
-    console.log('Fetched data:', data)
     squirrels.value = data
   } catch (error) {
     console.error('Error fetching squirrel data', error)
@@ -30,4 +30,11 @@ async function getSquirrels() {
 onMounted(() => getSquirrels())
 </script>
 
-<style scoped></style>
+<style scoped>
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+}
+</style>
