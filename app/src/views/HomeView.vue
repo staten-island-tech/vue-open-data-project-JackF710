@@ -8,15 +8,15 @@
         :squirrels="squirrel"
       ></SquirrelCard>
     </div>
+    <SquirrelChart :squirrels="squirrels" />
   </div>
 </template>
 
 <script setup>
 import SquirrelCard from '@/components/SquirrelCard.vue'
+import SquirrelChart from '@/components/SquirrelChart.vue'
 import { ref, onMounted } from 'vue'
 const squirrels = ref([])
-
-const blackSquirrels = squirrels.value.filter((squirrels) => squirrel.primary_fur_color === 'Black')
 
 async function getSquirrels() {
   try {
