@@ -16,47 +16,40 @@ defineProps({
 <style scoped>
 .SquirrelCard {
   width: 300px;
-  background-color: #f4f4f9;
-  border-radius: 12px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background: #f4f4f9;
+  border-radius: 16px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
   overflow: hidden;
-  font-family: Arial, sans-serif;
-  margin: 16px;
+  font-family: 'Arial', sans-serif;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.SquirrelCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 .card-header {
-  background-color: #4caf50;
-  color: white;
   padding: 16px;
   text-align: center;
-}
-
-.title {
-  font-size: 18px;
-  margin: 0;
-}
-
-.card-content {
-  padding: 16px;
-}
-
-.card-content p {
-  margin: 8px 0;
-  font-size: 16px;
-}
-
-.card-content strong {
+  color: white;
+  font-size: 20px;
   font-weight: bold;
-  color: #333;
 }
 
-.card-content p {
-  color: #555;
+.card-body {
+  padding: 20px;
+  background: #ffffff;
+  border-radius: 0 0 16px 16px;
 }
 
-.card-content p:nth-child(odd) {
-  background-color: #f0f0f0;
-  padding: 8px;
-  border-radius: 8px;
+.card-body p {
+  margin: 10px 0;
+  font-size: 16px;
+  color: #191717;
+}
+
+.card-body strong {
+  color: #191717;
 }
 </style>

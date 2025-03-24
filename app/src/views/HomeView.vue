@@ -1,21 +1,21 @@
 <template>
   <div class="container">
     <h1>Squirrels in Central Park</h1>
+      <SquirrelChart :squirrels="filteredSquirrels" />
     <div class="card-container">
       <SquirrelCard
-        v-for="(squirrel, index) in squirrels"
+        v-for="(squirrel, index) in filteredSquirrels"
         :key="index"
         :squirrels="squirrel"
       ></SquirrelCard>
     </div>
-    <SquirrelChart :squirrels="squirrels" />
   </div>
 </template>
 
 <script setup>
-import SquirrelCard from '@/components/SquirrelCard.vue'
 import SquirrelChart from '@/components/SquirrelChart.vue'
-import { ref, onMounted } from 'vue'
+import SquirrelCard from '@/components/SquirrelCard.vue'
+import { ref, computed, onMounted } from 'vue';
 const squirrels = ref([])
 
 async function getSquirrels() {
@@ -28,6 +28,15 @@ async function getSquirrels() {
   }
 }
 onMounted(() => getSquirrels())
+
+const filteredSquirrels = computed(() =>
+  squirrels.value.filter(squirrel =>
+    squirrel.primary_fur_color &&
+    squirrel.age &&
+    squirrel.specific_location &&
+    squirrel.running !== undefined
+  )
+);
 </script>
 
 <style scoped>
