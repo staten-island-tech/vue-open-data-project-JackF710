@@ -1,14 +1,14 @@
 <template>
-    <div>
-        <h1>hello</h1>
-        <router-link to="/">Go Home</router-link>
-      <SquirrelChart :squirrels="filteredSquirrels" />
-    </div>
-  </template>
-  
-  <script setup>
-  import SquirrelChart from '@/components/SquirrelChart.vue';
-  import { ref, onMounted, computed } from 'vue';
+  <div>
+    <h1>Chart View</h1>
+    <button @click="$router.push('/')">Back to Home</button>
+    <SquirrelChart :squirrels="filteredSquirrels" />
+  </div>
+</template>
+
+<script setup>
+import { ref, onMounted, computed } from 'vue';
+import SquirrelChart from '@/components/SquirrelChart.vue';
 
 const squirrels = ref([]);
 
@@ -32,16 +32,4 @@ const filteredSquirrels = computed(() =>
     squirrel.running !== undefined
   )
 );
-  </script>
-  
-  <style scoped>
-  button {
-    margin-top: 20px;
-    padding: 10px;
-    background: red;
-    color: white;
-    border: none;
-    cursor: pointer;
-  }
-  </style>
-  
+</script>

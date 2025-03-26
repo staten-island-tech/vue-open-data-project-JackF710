@@ -1,12 +1,13 @@
 <script setup>
-import ChartView from './views/ChartView.vue';
-import HomeView from './views/HomeView.vue'
 </script>
 
 <template>
   <div id="app">
-    <ChartView />
-    <HomeView />
+    <nav>
+      <router-link to="/"></router-link>
+      <router-link to="/chartview"></router-link>
+    </nav>
+    <router-view />
   </div>
 </template>
 
