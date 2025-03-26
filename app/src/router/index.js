@@ -4,7 +4,12 @@ import ChartView from '@/views/ChartView.vue'
 
   const routes = [
     {path: '/', component: HomeView},
-    {path: '/chartview', component: ChartView},
+    {
+      path: '/chartview',
+      name: 'chartview',
+      component: ChartView,
+    }
+    
   ]
 
 const router = createRouter({

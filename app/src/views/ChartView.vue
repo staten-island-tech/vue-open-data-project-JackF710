@@ -1,15 +1,16 @@
 <template>
     <div>
         <h1>hello</h1>
-      <button @click="$router.push('/')">Back to Home</button>
+        <router-link to="/">Go Home</router-link>
       <SquirrelChart :squirrels="filteredSquirrels" />
     </div>
   </template>
   
   <script setup>
   import SquirrelChart from '@/components/SquirrelChart.vue';
+  import { ref, onMounted, computed } from 'vue';
 
-  const squirrels = ref([]);
+const squirrels = ref([]);
 
 async function getSquirrels() {
   try {
@@ -30,7 +31,7 @@ const filteredSquirrels = computed(() =>
     squirrel.specific_location &&
     squirrel.running !== undefined
   )
-); 
+);
   </script>
   
   <style scoped>

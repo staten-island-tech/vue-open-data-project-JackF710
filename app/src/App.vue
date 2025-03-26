@@ -1,9 +1,11 @@
 <script setup>
+import ChartView from './views/ChartView.vue';
 import HomeView from './views/HomeView.vue'
 </script>
 
 <template>
   <div id="app">
+    <ChartView />
     <HomeView />
   </div>
 </template>
